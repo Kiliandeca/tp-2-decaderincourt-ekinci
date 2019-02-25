@@ -11,7 +11,7 @@ echo $PATH
 ```
 Cette commande va afficher trois dossiers.
 
-2. Pour permettre à cd tapée sans argument de revenir à notre répertoire personnel on utilise la variable d'environnement :
+2. Pour permettre à ```cd``` tapée sans argument de revenir à notre répertoire personnel on utilise la variable d'environnement :
 ```
 $PATH
 ```
@@ -45,6 +45,27 @@ Pour vérifier que l'affectation est correcte, on tape :
 ```
 echo $NOMS
 ```
+
+8. Pour écrire une commande qui affiche ”Bonjour à vous deux, binôme1 binôme2 !” en utilisant la variable NOMS, on tape :
+```
+COMMANDE="echo Bonjour à vous deux, $NOMS !"
+```
+Pour utiliser cette commande, on tape : 
+```
+$COMMANDE
+```
+
+9. Si on donne une valeur vide à une variable, cela ne va rien affecter à celle-ci mais elle sera toujours existante, alors qu'avec ```unset``` la variable sera totalement supprimée.
+
+10. On utilise ```echo``` pour écrire exactement ```$HOME=chemin``` ce qui nous donne : 
+```
+echo '$HOME = '$HOME
+```
+Cela est interprété comme ```$HOME = /home/biki``` où ```biki``` est notre nom d'utilisateur.
+
+### Programmation Bash
+
+### Exercice 2 - Contrôle de mot de passe
 
 
 
