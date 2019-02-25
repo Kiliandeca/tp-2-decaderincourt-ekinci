@@ -65,9 +65,26 @@ Cela est interprété comme ```$HOME = /home/biki``` où ```biki``` est notre no
 
 ### Programmation Bash
 
+Dans un dossier ```script``` dans notre répertoire personnel dans lequel on enregistre tous nos scripts.
+On créé le dossier ```script``` : 
+```
+cd 
+mkdir script
+```
+On ajoute le chemin vers script à notre PATH : 
+```
+export PATH=${PATH}:${HOME}/script
+```
+
 ### Exercice 2 - Contrôle de mot de passe
 
+Corps du script testpwd.sh qui va demander de saisir un mot de passe et vérifier qu'il correspond au contenu de ```$PASSWORD```.
+Le mot de passe saisi par l'utilisateur ne s'affiche pas.
 
+
+```
+ech
+```
 
 
 
