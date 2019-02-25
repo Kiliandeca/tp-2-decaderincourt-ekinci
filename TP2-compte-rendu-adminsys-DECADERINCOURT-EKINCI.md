@@ -93,9 +93,40 @@ password=bikini
 
 read -p 'Saisissez le mot de passe top secret svp : ' -s input
 
-if [input
+if [ $input = $password ]; then  
+  echo 'Bienvenue Biki'
+else 
+  echo "Mais vous n'êtes pas Biki !"
+fi
 
 ```
 
+### Exercice 3 - Expressions rationnelles
 
+Ecriture d'un script qui prend un paramètre et utilise la fonction is_number() pour vérifier que ce paramètre
+est un nombre réel :
+
+testnumber.sh : 
+```
+function is_number()
+{
+re='^[+-]?[0-9]+([.][0-9]+)?$'
+if ! [[ $1 =~ $re ]] ; then
+return 1
+else
+return 0
+fi
+}
+
+if [ is_number $1 = 1 ] ; then
+  echo "Le nombre entré en argument est réel"
+else
+  echo "Le nombre entré en argument is bullshit"
+fi
+
+```
+
+```
+
+```
 
