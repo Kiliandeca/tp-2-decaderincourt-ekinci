@@ -201,8 +201,30 @@ chmod u+x justeprix.sh
 ```bash
 #!/bin/bash
 
+aleat=$ ((($RANDOM%1000) +1))
 
+read -p "Tentez de deviner le nombre mystère si vous le pouvez ! :" mystere
 
+if [ $mystere -eq $aleat ] ; then
+  echo "Bien joué, vous avez trouvé le nombre mystère du premier coup"
+fi
+
+while [ $mystere -ne $aleat ]
+do
+  if [ $mystere -gt $aleat ] ; then
+    echo "C'est moins !"
+    read -p "Retentez votre chance, saisissez un nombre :" mystere
+  elif [ $mystere -lt $aleat ] ; then
+    echo "C'est plus !"
+    read -p "Retentez votre chance, saisissez un nombre :" mystere
+  else 
+    echo "Vous êtes un champion, vous avez trouvé le nombre mystère!"
+    exit 0
+  fi
+done
 ```
 
+### Exercice 7 - Statistiques
 
+```
+```
