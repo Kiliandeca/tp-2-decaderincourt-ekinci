@@ -102,7 +102,7 @@ fi
 
 ### Exercice 3 - Expressions rationnelles
 
-Ecriture d'un script qui prend un paramètre et utilise la fonction is_number() pour vérifier que ce paramètre
+Écriture d'un script qui prend un paramètre et utilise la fonction is_number() pour vérifier que ce paramètre
 est un nombre réel.
 
 On crée le fichier ```testnumber.sh``` et on s'attribue tous les droits :
@@ -150,18 +150,59 @@ chmod u+x testuser.sh
 ```bash
 #!/bin/bash
 
-nom_script = $0
-
-if [ $# -ne 2 ] ; then
-  echo "Utilisation : $nom_script nom_utilisateur"
-  return 0
+if [ $# -ne 1 ] ; then
+  echo "Utilisation : ${0##*/} nom_utilisateur"
+  exit 1
 fi
+
+grep ^$1 /etc/passwd -q
+if [ $? -eq 0 ]; then
+  echo "L'utilisateur $1 existe !"
+else 
+  echo "$1 n'existe pas voyons !"
+fi
+```
+
+### Exercice 5 - Factorielle
+
+Écriture d'un programme qui calcule la factorielle d’un entier naturel passé en paramètre (on supposera que
+l’utilisateur saisit toujours un entier naturel).
+
+On crée le fichier ```factorielle.sh``` et on s'attribue tous les droits :
+```
+nano factorielle.sh
+chmod u+x factorielle.sh
+```
+
+```bash
+#!/bin/bash
+
+result=1
+
+for i in $(seq 1 $1)
+do
+  result=$((result*i))
+done
+
+echo $result
+```
+
+### Exercice 6 - Le juste prix
+
+Écriture d'un script qui génère un nombre aléatoire entre 1 et 1000 et demande à l’utilisateur de le deviner.
+Le programme écrira ”C’est plus !”, ”C’est moins !” ou ”Gagné !” selon les cas (vous utiliserez $RANDOM).
+
+On crée le fichier ```justeprix.sh``` et on s'attribue tous les droits :
+```
+nano justeprix.sh
+chmod u+x justeprix.sh
+```
+
+```bash
+#!/bin/bash
+
 
 
 ```
-
-
-
-
 
 
