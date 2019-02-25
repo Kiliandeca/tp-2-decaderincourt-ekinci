@@ -107,7 +107,10 @@ Ecriture d'un script qui prend un paramètre et utilise la fonction is_number() 
 est un nombre réel :
 
 testnumber.sh : 
-```
+```bash
+
+#!/bin/bash
+
 function is_number()
 {
 re='^[+-]?[0-9]+([.][0-9]+)?$'
@@ -118,7 +121,9 @@ return 0
 fi
 }
 
-if [ is_number $1 = 1 ] ; then
+is_number $1
+
+if [ $? -eq 0 ] ; then
   echo "Le nombre entré en argument est réel"
 else
   echo "Le nombre entré en argument is bullshit"
@@ -126,7 +131,16 @@ fi
 
 ```
 
-```
+### Exercice 4  - Contrôle utilisateur
+ 
+Écriture d'un script qui vérifie l’existence d’un utilisateur dont le nom est donné en paramètre du script. Si le
+script est appelé sans nom d’utilisateur, il affiche le message : ”Utilisation : nom_du_script nom_utilisateur”,
+où nom_du_script est le nom de votre script récupéré automatiquement (si vous changez le nom de votre
+script, le message doit changer automatiquement)
+
+```bash
+
+#!/bin/bash
 
 ```
 
