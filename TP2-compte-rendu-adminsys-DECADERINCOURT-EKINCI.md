@@ -86,7 +86,7 @@ chmod u+x testpwd.sh
 
 On rédige le corps du script ```testpwd.sh``` qui va demander de saisir un mot de passe et vérifier qu'il correspond au contenu de ```$PASSWORD```.
 Le mot de passe saisi par l'utilisateur ne s'affiche pas.
-```
+```bash
 #!/bin/bash
 
 password=bikini
@@ -98,17 +98,21 @@ if [ $input = $password ]; then
 else 
   echo "Mais vous n'êtes pas Biki !"
 fi
-
 ```
 
 ### Exercice 3 - Expressions rationnelles
 
 Ecriture d'un script qui prend un paramètre et utilise la fonction is_number() pour vérifier que ce paramètre
-est un nombre réel :
+est un nombre réel.
+
+On crée le fichier ```testnumber.sh``` et on s'attribue tous les droits :
+```
+nano testnumber.sh
+chmod u+x testnumber.sh
+```
 
 testnumber.sh : 
 ```bash
-
 #!/bin/bash
 
 function is_number()
@@ -128,7 +132,6 @@ if [ $? -eq 0 ] ; then
 else
   echo "Le nombre entré en argument is bullshit"
 fi
-
 ```
 
 ### Exercice 4  - Contrôle utilisateur
@@ -138,9 +141,27 @@ script est appelé sans nom d’utilisateur, il affiche le message : ”Utilisat
 où nom_du_script est le nom de votre script récupéré automatiquement (si vous changez le nom de votre
 script, le message doit changer automatiquement)
 
-```bash
+On crée le fichier ```testuser.sh``` et on s'attribue tous les droits :
+```
+nano testuser.sh
+chmod u+x testuser.sh
+```
 
+```bash
 #!/bin/bash
 
+nom_script = $0
+
+if [ $# -ne 2 ] ; then
+  echo "Utilisation : $nom_script nom_utilisateur"
+  return 0
+fi
+
+
 ```
+
+
+
+
+
 
