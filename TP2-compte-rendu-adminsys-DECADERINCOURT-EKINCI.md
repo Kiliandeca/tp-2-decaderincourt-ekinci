@@ -226,5 +226,41 @@ done
 
 ### Exercice 7 - Statistiques
 
-```
+```bash
+
+function is_number()
+{
+  re='^[+-]?[0-9]+([.][0-9]+)?$'
+  if ! [[ $1 =~ $re ]] ; then
+    return 1
+  else
+    return 0
+  fi
+}
+
+mini=$1;
+maxi=$1;
+somme=0;
+effectif=$#
+
+while [$# -gt 0] ; do
+
+  is_number $1
+  
+  if [ $? -eq 1] ; then
+    exit 1
+  fi
+
+  if [ $1 -lt $mini ] ; then
+    mini=$1
+  fi
+  if [ $1 -gt $maxi ] ; then
+    maxi=$1
+  fi
+  somme=$((somme+$1))
+  shift
+done
+echo "minimum: $mini"
+echo "maximum: $maxi"
+echo "moyenne: $((somme/effectif))"
 ```
